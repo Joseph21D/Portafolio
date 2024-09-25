@@ -1,0 +1,72 @@
+---
+import JavaScript from '../icons/IconoJavaScript.astro'
+import Python from '../icons/IconoPython.astro'
+import HTML from '../icons/HtmlIcono.astro'
+import CSS from '../icons/IconoCss.astro'
+
+const TAGS = {
+    JAVASCRIPT: {
+        name: 'JavaScript',
+        icon: JavaScript,
+    },
+
+    PYTHON: {
+        name: 'Python',
+        icon: Python,
+    },
+
+    HTML: {
+        name: 'HTML',
+        icon: HTML,
+    },
+
+    CSS: {
+        name: 'CSS',
+        icon: CSS,
+    }
+}
+
+const PROJECTS = [
+    {
+        tittle: "Tier Maker",
+        description: "Arrastra y suelta las imágenes para crear tus propias listas de niveles",
+        link: "https://tabler.io/icons",
+        github: "https://github.com/tabler/tabler-icons",
+        image: "/projects/TierMaker.png",
+        tags: [TAGS.JAVASCRIPT, TAGS.CSS, TAGS.HTML]
+    },
+
+    {
+        tittle: "Tetris",
+        description: "Juega un Tetris Sencillo realizado en JavaScript",
+        link: "https://tabler.io/icons",
+        github: "https://github.com/tabler/tabler-icons",
+        image: "/projects/Tetris.png",
+        tags: [TAGS.JAVASCRIPT, TAGS.CSS, TAGS.HTML]
+    },
+
+    {
+        tittle: "Paint",
+        description: "Clon del Paint usando JavaScript y Canvas",
+        link: "https://tabler.io/icons",
+        github: "https://github.com/tabler/tabler-icons",
+        image: "/projects/Paint.png",
+        tags: [TAGS.JAVASCRIPT, TAGS.CSS, TAGS.HTML]
+    }
+]
+---
+
+{
+    PROJECTS.map(({tittle, description, image, tags}) => (
+        <article>
+            <h3 class="mt-5 text-2xl font-semibold text-yellow-200 mb-2">{tittle}</h3>
+            <p class="text-lg mb-4 text-pretty">{description}</p>
+            <ul class="flex gap-x-2 flex-row mb-2">
+                {tags.map(tag => (
+                    <li><span class=" flex gap-x-2 rounded-full text-sm border border-blue-700 bg-white text-black py-1 px-2"><tag.icon class="size-5"/>{tag.name}</span></li>
+                ))}
+            </ul>
+            <img class="rounded shadow-2xl shadow-white/15" src={image} alt={`Captura de Pantalla del proyecto ${image}`}>
+        </article>
+    ))
+}

@@ -1,0 +1,33 @@
+---
+import ExperienceItem from "./ExperienceItem.astro";
+
+const EXPERIENCE = [
+  {
+    date: "Junio 2023 - Present",
+    title: "Instituto Idat",
+    description: "Desarrollo de Sistemas de Informacion",
+  },
+
+  {
+    date: "Enero 2023 - Abril 2023",
+    title: "EdTeam",
+    description: "JavaScript, React, Angular",
+  },
+
+  {
+    date: "Agosto 2022 - Octubre 2022",
+    title: "Platzi",
+    description: "Domina Excel",
+  },
+];
+---
+
+<ol class="relative border-s border-gray-200 ml-3">
+  {
+    EXPERIENCE.map((experience) => (
+      <li class="mb-10 ms-4">
+        <ExperienceItem {...experience} />
+      </li>
+    ))
+  }
+</ol>
